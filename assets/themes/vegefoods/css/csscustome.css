@@ -1,0 +1,16 @@
+.bg-hitam1{
+    background-color: #262425;
+}
+.active_1{
+    color: #f05463;
+}
+.link:visited, .link:link{
+    float: right;
+    color: green;
+    text-decoration: none;
+}
+.link:hover, .link:active{
+    float: right;
+    color: red;
+    text-decoration: none;
+}
