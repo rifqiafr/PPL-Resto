@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
 
     public function index()
     {
-        $params['title'] = 'Admin '. get_store_name();
+        $params['title'] = 'Dashboard '. get_store_name();
 
         $overview['total_products'] = $this->product->count_all_products();
         $overview['total_customers'] = $this->customer->count_all_customers();
@@ -37,5 +37,25 @@ class Admin extends CI_Controller {
         $this->load->view('header', $params);
         $this->load->view('overview', $overview);
         $this->load->view('footer');
+    }
+
+    public function reduce_stock() {
+        $productId = $this->input->post('productId');
+        $quantity = $this->input->post('quantity');
+
+        // Panggil model
+        $this->load->model('Product_model');
+        
+        // Lakukan pengurangan stok
+        $this->Product_model->reduce_stock($productId, $quantity);
+
+        // Kirim respons
+        $response = array(
+            'status' => 'success',
+            'message' => 'Stok berhasil dikurangkan'
+        );
+
+        header('Content-Type: application/json');
+        echo json_encode($response);
     }
 }

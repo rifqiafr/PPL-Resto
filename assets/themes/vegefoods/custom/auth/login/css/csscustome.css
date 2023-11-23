@@ -112,7 +112,7 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="password"]:focus {
     font-size: 16px;
-    color:#4dae3c;
+    color:#ffffff;
     outline: none;
     border-bottom: 1px solid #fc3955;
 }

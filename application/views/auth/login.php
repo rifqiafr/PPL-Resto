@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="<?php echo get_theme_uri('custom/auth/login/css/csscustome.css'); ?>" rel="stylesheet" /> 
     </head>
     <body>
-        <h1>LOGIN</h1>
+        <h1>Lesehan Raihan</h1>
         <div class=" w3l-login-form">
-            <h2>Login Akun</h2>
+            <h2>LOGIN AKUN</h2>
             <?php if ($flash_message) : ?>
             <div class="flash-message">
                 <?php echo $flash_message; ?>

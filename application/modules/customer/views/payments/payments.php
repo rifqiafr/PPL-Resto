@@ -33,9 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th scope="col">Tanggal</th>
                             <th scope="col">Status</th>
                         </tr>
+                        <?php $no = 1;?>
                         <?php foreach ($payments as $payment) : ?>
                         <tr>
-                            <td><?php echo $payment->id; ?></td>
+                            <td><?php echo $no++; ?></td>
                             <td><?php echo anchor('customer/payments/view/'. $payment->id, '#'. $payment->order_number); ?></td>
                             <td><?php echo get_formatted_date($payment->payment_date); ?></td>
                             <td><?php echo get_payment_status($payment->payment_status); ?></td>

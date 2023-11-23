@@ -147,7 +147,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
 
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-header">
           <h3 class="mb-0">Belanja</h3>
         </div>
@@ -174,7 +174,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <?php echo form_error('min_shop_to_free_shipping_cost'); ?>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="card">
         <div class="card-body">

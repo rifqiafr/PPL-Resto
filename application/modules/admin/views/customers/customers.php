@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <th scope="col">Email</th>
                   <th scope="col">No. HP</th>
                   <th scope="col">Alamat</th>
-                  <th scope="col"></th>
+                  <th scope="col">action</th>
                 </tr>
               </thead>
             </table>
@@ -54,7 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </div>
 
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-    <div class="modal-dialog modal-modal-dialog-centered modal-" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h6 class="modal-title" id="modal-title-default">Hapus Pelanggan?</h6>
@@ -78,15 +78,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
   </div>
 
-  <link href="<?php echo get_theme_uri('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css', 'argon'); ?>" rel="stylesheet">
+  <link href="<?php echo get_theme_uri('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css', 'argon'); ?>"
+    rel="stylesheet">
 
   <script src="<?php echo get_theme_uri('vendor/datatables.net/js/jquery.dataTables.min.js', 'argon'); ?>"></script>
-  <script src="<?php echo get_theme_uri('vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js', 'argon'); ?>"></script>
+  <script
+    src="<?php echo get_theme_uri('vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js', 'argon'); ?>"></script>
   <script src="<?php echo base_url('assets/plugins/datatables.lang.js'); ?>"></script>
 
-  <script>
-    $(document).ready(function() {
-      $(document).on('click', '.btnDelete', function() {
+
+<script>
+    $(document).ready(function () {
+      $(document).on('click', '.btnDelete', function () {
         var id = $(this).data('id');
 
         $('.deleteID').val(id);
@@ -103,12 +106,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         $.ajax({
           method: 'POST',
-          url: '<?php echo site_url('admin/customers/api/delete'); ?>',
+          url: '<?php echo site_url('admin/Customers/api/delete'); ?>',
           data: {
-            id: id
+              id: id
           },
           success: function(res) {
-            console.log(res);
             if (res.code == 204) {
               btn.html('<i class="fa fa-check"></i> Terhapus!');
 
@@ -123,41 +125,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
       });
       var no = 1;
       var table = $('#customerList').DataTable({
-        "ajax": "<?php echo site_url('admin/customers/api/customers'); ?>",
+        "ajax": "<?php echo site_url('admin/Customers/api/customers'); ?>",
         "columns": [{
-            "data": function(data, type, row) {
-        return no++;}
-          },
-          {
-            "data": function(data, type, row) {
-              return '<img src="' + data.profile_picture + '" class="img img-fluid rounded" style="width: 40px;">';
-            }
-          },
-          {
-            "data": function(data, type, row) {
-              var url = window.location.href.split('?')[0].replace('#', '');
-              url = url + '/view/' + data.id;
-
-              return '<a href="' + url + '">' + data.name + '</a>';
-            }
-          },
-          {
-            "data": "email"
-          },
-          {
-            "data": "phone_number"
-          },
-          {
-            "data": "address"
-          },
-          {
-            "mRender": function(data, type, row) {
-              var url = window.location.href.split('?')[0].replace('#', '');
-              url = url + '/edit/' + row.id;
-
-              return '<div class="text-right"><a href="#" data-id="' + row.id + '" class="btn btn-danger btn-sm btnDelete"><i class="fa fa-trash"></i></a></div>';
-            }
+          "data": function (data, type, row) {
+            return no++;
           }
+        },
+        {
+          "data": function (data, type, row) {
+            return '<img src="' + data.profile_picture + '" class="img img-fluid rounded" style="width: 40px;">';
+          }
+        },
+        {
+          "data": function (data, type, row) {
+            var url = window.location.href.split('?')[0].replace('#', '');
+            url = url + '/view/' + data.id;
+
+            return '<a href="' + url + '">' + data.name + '</a>';
+          }
+        },
+        {
+          "data": "email"
+        },
+        {
+          "data": "phone_number"
+        },
+        {
+          "data": "address"
+        },
+        {
+          "mRender": function (data, type, row) {
+            var url = window.location.href.split('?')[0].replace('#', '');
+            url = url + '/edit/' + row.id;
+
+            return '<div class="text-right"><a href="#" data-id="' + row.id + '" class="btn btn-danger btn-sm btnDelete"><i class="fa fa-trash"></i></a></div>';
+          }
+        }
         ],
         "language": {
           "search": "Cari:",
@@ -176,3 +179,70 @@ defined('BASEPATH') or exit('No direct script access allowed');
       });
     });
   </script>
+  <!-- ... (Kode sebelumnya) ... -->
+
+  <!-- <script>
+  $(document).ready(function () {
+    var no = 1;
+    var table = $('#customerList').DataTable({
+      "ajax": "<?php echo site_url('admin/Customers/api/customers'); ?>",
+      "columns": [
+        {
+          "data": function (data, type, row) {
+            return no++;
+          }
+        },
+        {
+          "data": function (data, type, row) {
+            return '<img src="' + data.profile_picture + '" class="img img-fluid rounded" style="width: 40px;">';
+          }
+        },
+        {
+          "data": function (data, type, row) {
+            var url = window.location.href.split('?')[0].replace('#', '');
+            url = url + '/view/' + data.id;
+
+            return '<a href="' + url + '">' + data.name + '</a>';
+          }
+        },
+        { "data": "email" },
+        { "data": "phone_number" },
+        { "data": "address" },
+        {
+          "mRender": function (data, type, row) {
+            var url = window.location.href.split('?')[0].replace('#', '');
+            url = url + '/edit/' + row.id;
+
+            return '<div class="text-right"><a href="#" data-id="' + row.id + '" class="btn btn-danger btn-sm btnDelete"><i class="fa fa-trash"></i></a></div>';
+          }
+        }
+      ],
+      "language": {
+        "search": "Cari:",
+        "lengthMenu": "Menampilkan _MENU_ data",
+        "info": "Menampilkan _START_ sampai _END_ data dari _TOTAL_ data",
+        "infoEmpty": "Tidak ada data yang ditampilkan",
+        "infoFiltered": "(dari total _MAX_ data)",
+        "zeroRecords": "Tidak ada hasil pencarian ditemukan",
+        "paginate": {
+          "first": "&laquo;",
+          "last": "&raquo;",
+          "next": "&rsaquo;",
+          "previous": "&lsaquo;"
+        },
+      }
+    });
+
+    $(document).on('click', '.btnDelete', function () {
+      var id = $(this).data('id');
+      var tableRow = $(this).closest('tr');
+
+      // Hapus baris tabel langsung dari DataTable
+      table.row(tableRow).remove().draw();
+      
+      // Tampilkan pesan sukses atau lakukan tindakan lain jika diperlukan
+      alert('Pelanggan berhasil dihapus!');
+    });
+  });
+</script>
+ -->

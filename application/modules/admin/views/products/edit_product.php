@@ -81,14 +81,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <div class="col-6">
                   <div class="form-group">
-                  <label class="form-control-label" for="price_d">Diskon:</label>
+                  <!-- <label class="form-control-label" for="price_d">Diskon:</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Rp</span>
                     </div>
                     <input type="text" name="price_discount" value="<?php echo set_value('price_discount', $product->current_discount); ?>" class="form-control" id="price_d">
                   </div>
-                    <?php echo form_error('price_iscount'); ?>
+                    <?php echo form_error('price_iscount'); ?> -->
                 </div>
                   </div>
                 </div>

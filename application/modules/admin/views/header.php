@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="nav-link-text">Kategori Produk</span>
               </a>
             </li>
-            <li<?=$this->uri->segment(2)=='products' && $this->uri->segment(3)==''?' class="nav-item active"' : 'class="nav-item"' ?>>
+            <li <?=$this->uri->segment(2)=='products' && $this->uri->segment(3)==''?' class="nav-item active"' : 'class="nav-item"' ?>>
               <a class="nav-link" href="<?php echo site_url('admin/products'); ?>">
                 <i class="fa fa-shopping-cart text-success"></i>
                 <span class="nav-link-text">Produk</span>
@@ -72,12 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="nav-link-text">Pesanan</span>
               </a>
             </li>
-            <!-- <li <?=$this->uri->segment(3)=='coupons' ?' class="nav-item active"' : 'class="nav-item"' ?>>
-              <a class="nav-link" href="<?php echo site_url('admin/products/coupons'); ?>">
-                <i class="fa fa-money-bill-alt text-info"></i>
-                <span class="nav-link-text">Kupon</span>
-              </a>
-            </li> -->
             <li <?=$this->uri->segment(2)=='payments' ?' class="nav-item active"' : 'class="nav-item"' ?>>
               <a class="nav-link" href="<?php echo site_url('admin/payments'); ?>">
                 <i class="fa fa-money-bill-alt text-orange"></i>

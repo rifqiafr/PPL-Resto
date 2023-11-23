@@ -1012,7 +1012,7 @@ h1, h2, h3, h4, h5,
 		background: transparent;
 		padding: 0 15px;
 	}
-	button,.form-control{;
+	button.form-control{
 		height: 40px !important;
 		text-align: center;
 		border: 1px solid rgba(0,0,0,.1) !important;
@@ -1076,6 +1076,7 @@ h1, h2, h3, h4, h5,
 //CART
 .ftco-cart{
 	.input-group{
+		//tidak ada
 	}
 	button{
 		i{
@@ -1090,14 +1091,14 @@ h1, h2, h3, h4, h5,
 		background: transparent;
 		padding: 16px 20px;
 	}
-	button,.form-control{;
-		height: 54px !important;
-		text-align: center;
-		bordeR: 1px solid rgba(0,0,0,.05) !important;
-		color: $black !important;
-		padding: 0;
-		font-size: 14px;
-	}
+	button, .form-control {
+    height: 54px !important;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    color: $black !important; /* Pastikan variabel $black sudah didefinisikan */
+    padding: 0;
+    font-size: 14px;
+}
 	.form-group{
 		position: relative;
 		.form-control{

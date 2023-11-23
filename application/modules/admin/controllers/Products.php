@@ -123,7 +123,7 @@ class Products extends CI_Controller {
         $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stok barang', 'required|numeric');
         $this->form_validation->set_rules('unit', 'Satuan barang', 'required');
-        $this->form_validation->set_rules('description', 'Deskripsi produk', 'max_length[512]');
+        $this->form_validation->set_rules('description', 'Deskripsi produk', 'required|max_length[512]');
         
         if ($this->form_validation->run() == FALSE)
         {
@@ -136,7 +136,7 @@ class Products extends CI_Controller {
             $price = $this->input->post('price');
             $stock = $this->input->post('stock');
             $unit = $this->input->post('unit');
-            $desc = $this->input->post('desc');
+            $desc = $this->input->post('desccription');
             $date = date('Y-m-d H:i:s');
 
             $config['upload_path'] = './assets/uploads/products/';
@@ -231,7 +231,7 @@ class Products extends CI_Controller {
             $discount = $this->input->post('price_discount');
             $stock = $this->input->post('stock');
             $unit = $this->input->post('unit');
-            $desc = $this->input->post('desc');
+            $desc = $this->input->post('description');
             $available = $this->input->post('is_available');
             $date = date('Y-m-d H:i:s');
 
@@ -406,100 +406,101 @@ class Products extends CI_Controller {
             ->set_output($response);
     }
 
-    public function coupons()
-    {
-        $params['title'] = 'Kelola Kupon Belanja';
+    // public function coupons()
+    // {
+    //     $params['title'] = 'Kelola Kupon Belanja';
 
-        $this->load->view('header', $params);
-        $this->load->view('products/coupons');
-        $this->load->view('footer');
-    }
+    //     $this->load->view('header', $params);
+    //     $this->load->view('products/coupons');
+    //     $this->load->view('footer');
+    // }
 
-    public function _get_coupon_list()
-    {
-        $coupons = $this->product->get_all_coupons();
-        $n = 0;
+    // public function _get_coupon_list()
+    // {
+    //     $coupons = $this->product->get_all_coupons();
+    //     $n = 0;
 
-        foreach ($coupons as $coupon)
-        {
-            $coupons[$n]->credit = 'Rp '. format_rupiah($coupon->credit);
-            $coupons[$n]->start_date = get_formatted_date($coupon->start_date);
-            $coupons[$n]->is_active = ($coupon->is_active == 1) ? ((strtotime($coupon->expired_date) < time()) ? 'Sudah kadaluarsa' : 'Masih berlaku') : 'Tidak aktif';
-            $coupons[$n]->expired_date = get_formatted_date($coupon->expired_date);
+    //     foreach ($coupons as $coupon)
+    //     {
+    //         $coupons[$n]->credit = 'Rp '. format_rupiah($coupon->credit);
+    //         $coupons[$n]->start_date = get_formatted_date($coupon->start_date);
+    //         $coupons[$n]->is_active = ($coupon->is_active == 1) ? ((strtotime($coupon->expired_date) < time()) ? 'Sudah kadaluarsa' : 'Masih berlaku') : 'Tidak aktif';
+    //         $coupons[$n]->expired_date = get_formatted_date($coupon->expired_date);
 
-            $n++;
-        }
+    //         $n++;
+    //     }
 
-        return $coupons;
-    }
+    //     return $coupons;
+    // }
 
-    public function coupon_api()
-    {
-        $action = $this->input->get('action');
+    // public function coupon_api()
+    // {
+    //     $action = $this->input->get('action');
 
-        switch ($action) {
-            case 'coupon_list' :
-                $coupons['data'] = $this->_get_coupon_list();
+    //     switch ($action) {
+    //         case 'coupon_list' :
+    //             $coupons['data'] = $this->_get_coupon_list();
 
-                $response = $coupons;
-            break;
-            case 'view_data' :
-                $id = $this->input->get('id');
+    //             $response = $coupons;
+    //         break;
+    //         case 'view_data' :
+    //             $id = $this->input->get('id');
 
-                $data['data'] = $this->product->coupon_data($id);
-                $response = $data;
-            break;
-            case 'add_coupon' :
-                $name = $this->input->post('name');
-                $code = $this->input->post('code');
-                $credit = $this->input->post('credit');
-                $start = $this->input->post('start_date');
-                $end = $this->input->post('expired_date');
+    //             $data['data'] = $this->product->coupon_data($id);
+    //             $response = $data;
+    //         break;
+    //         case 'add_coupon' :
+    //             $name = $this->input->post('name');
+    //             $code = $this->input->post('code');
+    //             $credit = $this->input->post('credit');
+    //             $start = $this->input->post('start_date');
+    //             $end = $this->input->post('expired_date');
 
-                $coupon = array(
-                    'name' => $name,
-                    'code' => $code,
-                    'credit' => $credit,
-                    'start_date' => date('Y-m-d', strtotime($start)),
-                    'expired_date' => date('Y-m-d', strtotime($end))
-                );
+    //             $coupon = array(
+    //                 'name' => $name,
+    //                 'code' => $code,
+    //                 'credit' => $credit,
+    //                 'start_date' => date('Y-m-d', strtotime($start)),
+    //                 'expired_date' => date('Y-m-d', strtotime($end))
+    //             );
 
-                $this->product->add_coupon($coupon);
-                $coupons['data'] = $this->_get_coupon_list();
+    //             $this->product->add_coupon($coupon);
+    //             $coupons['data'] = $this->_get_coupon_list();
             
-                $response = $coupons;
-            break;
-            case 'delete_coupon' : 
-                $id = $this->input->post('id');
+    //             $response = $coupons;
+    //         break;
+    //         case 'delete_coupon' : 
+    //             $id = $this->input->post('id');
 
-                $this->product->delete_coupon($id);
-                $response = array('code' => 204, 'message' => 'Kupon berhasil dihapus!');
-            break;
-            case 'edit_coupon' :
-                $id = $this->input->post('id');
-                $name = $this->input->post('name');
-                $code = $this->input->post('code');
-                $credit = $this->input->post('credit');
-                $start = $this->input->post('start_date');
-                $end = $this->input->post('expired_date');
-                $active = $this->input->post('is_active');
+    //             $this->product->delete_coupon($id);
+    //             $response = array('code' => 204, 'message' => 'Kupon berhasil dihapus!');
+    //         break;
+    //         case 'edit_coupon' :
+    //             $id = $this->input->post('id');
+    //             $name = $this->input->post('name');
+    //             $code = $this->input->post('code');
+    //             $credit = $this->input->post('credit');
+    //             $start = $this->input->post('start_date');
+    //             $end = $this->input->post('expired_date');
+    //             $active = $this->input->post('is_active');
 
-                $coupon = array(
-                    'name' => $name,
-                    'code' => $code,
-                    'credit' => $credit,
-                    'start_date' => date('Y-m-d', strtotime($start)),
-                    'expired_date' => date('Y-m-d', strtotime($end)),
-                    'is_active' => $active
-                );
+    //             $coupon = array(
+    //                 'name' => $name,
+    //                 'code' => $code,
+    //                 'credit' => $credit,
+    //                 'start_date' => date('Y-m-d', strtotime($start)),
+    //                 'expired_date' => date('Y-m-d', strtotime($end)),
+    //                 'is_active' => $active
+    //             );
 
-                $this->product->edit_coupon($id, $coupon);
-                $response = array('code' => 201, 'message' => 'Kupon berhasil diperbarui');
-            break;
-        }
+    //             $this->product->edit_coupon($id, $coupon);
+    //             $response = array('code' => 201, 'message' => 'Kupon berhasil diperbarui');
+    //         break;
+    //     }
 
-        $response = json_encode($response);
-        $this->output->set_content_type('application/json')
-            ->set_output($response);
-    }
+    //     $response = json_encode($response);
+    //     $this->output->set_content_type('application/json')
+    //         ->set_output($response);
+    // }
+
 }

@@ -91,33 +91,6 @@ $(document).ready(function() {
       $('#deleteModal').modal('show');
     });
 
-    // $('#deleteCustomer').submit(function(e) {
-    //   e.preventDefault();
-
-    //   var id = $('.deleteID').val();
-    //   var btn = $('.btn-delete');
-
-    //   btn.html('<i class="fa fa-spin fa-spinner"></i> Menghapus...');
-
-    //   $.ajax({
-    //     method: 'POST',
-    //     url: '<?php echo site_url('admin/customers/api/delete'); ?>',
-    //     data: {
-    //         id: id
-    //     },
-    //     success: function (res) {
-    //       if (res.code == 204) {
-    //         btn.html('<i class="fa fa-check"></i> Terhapus!');
-
-    //         setTimeout(() => {
-    //           $('#deleteModal').modal('hide');
-    //           table.ajax.reload();
-    //           btn.html('Hapus');
-    //         }, 1500);
-    //       }
-    //     }
-    //   })
-    // });
     $('#deleteContact').submit(function(e) {
       e.preventDefault();
 

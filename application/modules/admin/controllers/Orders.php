@@ -92,4 +92,26 @@ class Orders extends CI_Controller {
 
         redirect('admin/orders/view/'. $order);
     }
+
+    public function delete($id)
+{
+    // Pastikan $id valid dan order ditemukan
+    if ($this->order->is_order_exist($id))
+    {
+        // Panggil metode model atau logika lain untuk menghapus order berdasarkan $id
+        $this->order->delete_order($id);
+
+        // Set pesan flash untuk memberikan umpan balik kepada pengguna
+        $this->session->set_flashdata('order_flash', 'Order berhasil dihapus');
+
+        // Redirect ke halaman order setelah penghapusan
+        redirect('admin/orders/index');
+    }
+    else
+    {
+        // Jika order tidak ditemukan, tampilkan halaman 404 atau pesan kesalahan lainnya
+        show_404();
+    }
+}
+
 }

@@ -1337,7 +1337,7 @@
   .table {
     width: 100%;
     margin-bottom: 1rem;
-    background-color: #292B33; }
+    background-color: #ffffff; }
     .table th,
     .table td {
       padding: 0.75rem;
@@ -5298,9 +5298,9 @@
     background-color: #dae0e5 !important; }
   
   .bg-dark {
-    background-color: #292B33 !important; }
+    background-color: #FFFF !important; }
   .bg-dark1{
-    background-color: #1E1E24;
+    background-color: #0C356A;
   }
   a.bg-dark:hover, a.bg-dark:focus,
   button.bg-dark:hover,
@@ -7882,10 +7882,10 @@
     color: #494f54 !important; }
   
   .text-success {
-    color: #28a745 !important; }
+    color: #00A9FF !important; }
   
   a.text-success:hover, a.text-success:focus {
-    color: #19692c !important; }
+    color: #00A9FF !important; }
   
   .text-info {
     color: #17a2b8 !important; }
@@ -8009,11 +8009,11 @@
   
   body {
     font-family: "Poppins", Arial, sans-serif;
-    background: #1E1E24;
+    background: #ffffff;
     font-size: 15px;
     line-height: 1.8;
     font-weight: 400;
-    color: #ffffff; }
+    color: #000000; }
     body.menu-show {
       overflow: hidden;
       position: fixed;
@@ -8033,7 +8033,7 @@
   .h1, .h2, .h3, .h4, .h5 {
     line-height: 1.5;
     font-weight: 400;
-    color: #ffffff;
+    color: #000000;
     font-family: "Poppins", Arial, sans-serif; }
     .pfooter, .h5footer, .h2footer{
       line-height: 1.5;
@@ -8398,8 +8398,8 @@
           bottom: 0;
           left: 0;
           right: 0;
-          background: #000000;
-          opacity: .2; }
+          /* background: #000000; */
+          opacity: .1; }
         .owl-carousel.home-slider .slider-item .slider-text {
           height: 650px;
           z-index: 0; }
@@ -8505,7 +8505,7 @@
             background: #fff; }
   
   .bg-light {
-    background: #f7f6f2 !important; }
+    background: #0C356A !important; }
   
   .bg-primary {
     background: #ae4646; }
@@ -8754,7 +8754,7 @@
     .product:hover .img-prod .overlay {
       opacity: 0; }
     .product .text {
-      background: #292B33;
+      background: #0C356A;
       position: relative;
       width: 100%; }
       .product .text h3 {
@@ -8794,7 +8794,7 @@
         -ms-transition: all 0.3s ease;
         transition: all 0.3s ease; }
         .product .text .bottom-area a {
-          color: #fff;
+          color: #ffffff;
           width: 100%;
           background: #36a8ff;
           width: 40px;
@@ -8821,10 +8821,10 @@
   
   .product-details .price span {
     font-size: 30px;
-    color: #ffffff; }
+    color: #000000; }
   
   .product-details button i {
-    color: #ffffff; }
+    color: #000000; }
     .product-details button i:hover {
       color: #36a8ff; }
   
@@ -8839,7 +8839,7 @@
   .product-details button, .product-details .form-control {
     height: 40px !important;
     text-align: center;
-    border: 1px solid #ffffff !important;
+    border: 1px solid #36a8ff !important;
     color: #36a8ff;
     padding: 10px 20px;
     background: transparent !important;
@@ -8965,9 +8965,9 @@
       border: 1px solid transparent !important;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
       .table tbody tr td.product-remove a {
-        border: 1px solid #ffffff;
+        border: 1px solid #00A9FF;
         padding: 4px 10px;
-        color: #ffffff; }
+        color: #00A9FF; }
         .table tbody tr td.product-remove a:hover {
           border: 1px solid #36a8ff;
           background: #36a8ff; }
@@ -8985,7 +8985,7 @@
         .table tbody tr td.product-name h3 {
           font-size: 16px; }
       .table tbody tr td.total, .table tbody tr td.price {
-        color: #ffffff; }
+        color: #000000; }
   
   .cart-wrap .btn-primary {
     display: inline-block; }
@@ -9007,7 +9007,7 @@
       .cart-total p.total-price span {
         text-transform: uppercase; }
         .cart-total p.total-price span:last-child {
-          color: #4dae3c;
+          color: #000000;
           font-weight: 600; }
     .cart-total hr {
       background: rgba(255, 255, 255, 0.1); }
@@ -9181,7 +9181,7 @@
   .form-control {
     height: 52px !important;
     background: #fff !important;
-    color: #4dae3c !important;
+    color: #000000 !important;
     font-size: 18px;
     border-radius: 0px;
     -webkit-box-shadow: none !important;
@@ -9225,7 +9225,7 @@
   .ftco-footer {
     font-size: 14px;
     padding: 7em 0;
-    color: #ffffff; }
+    color: #000000; }
     .ftco-footer .ftco-footer-logo {
       text-transform: uppercase;
       letter-spacing: .1em; }
@@ -9238,9 +9238,9 @@
       font-size: 14px;
       margin-bottom: 0px; }
       .ftco-footer .ftco-footer-widget ul li a {
-        color: #ffffff; }
+        color: #000000; }
         .ftco-footer .ftco-footer-widget ul li a:hover {
-          color: #4dae3c; }
+          color: #00A9FF; }
     .ftco-footer .ftco-footer-widget .btn-primary {
       border: 2px solid #fff !important; }
       .ftco-footer .ftco-footer-widget .btn-primary:hover {
@@ -9266,9 +9266,9 @@
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        color: #ffffff; }
+        color: #0C356A; }
       .ftco-footer-social li a span:hover {
-        color: #4dae3c; }
+        color: #00A9FF; }
   
   #map {
     width: 100%; }
@@ -9311,7 +9311,7 @@
       position: relative;
       font-size: 40px;
       font-weight: 600;
-      color: #ffffff;
+      color: #000000;
       font-family: "Poppins", Arial, sans-serif; }
       @media (max-width: 767.98px) {
         .heading-section h2 {
@@ -9387,7 +9387,7 @@
         color: #00A9FF; }
       .ftco-services .services .media-body span {
         text-transform: uppercase;
-        color: #ffffff;
+        color: #000000;
         font-size: 12px;
         font-weight: 500; }
     .ftco-services .services:hover .icon, .ftco-services .services:focus .icon {
@@ -9485,7 +9485,7 @@
     display: block;
     position: relative;
     background: rgba(255, 255, 255, 0.1);
-    color: #ffffff; }
+    color: #00A9FF; }
     .testimony-wrap .user-img {
       width: 100px;
       height: 100px;

@@ -1,8 +1,6 @@
 # Lesehan Raihan
 merupakan aplikasi web toko online sederhana dengan demo produk penjualan makanan dan minuman. Produk dan kategori dapat diubah dengan bebas, pengaturan (nama situs, rekening) dan sebagainya bisa diubah dengan bebas melalui dashbord.
 
-Aplikasi ini **HANYA DIGUNAKAN UNTUK PEMBELAJARAN** dan **TIDAK DISARANKAN DIGUNAKAN** pada toko yang nyata.
-
 ##Fitur
 - Login
 - Register

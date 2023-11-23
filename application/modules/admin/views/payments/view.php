@@ -97,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <form action="<?php echo site_url('admin/payments/verify'); ?>" method="POST">
                         <input type="hidden" name="redir" value="1">
 
-                        <div class="row">
+                        <!-- <div class="row">
                           <input type="hidden" name="id" value="<?php echo $payment->id; ?>">
                           <input type="hidden" name="order" value="<?php echo $payment->order_id; ?>">
                             <div class="col-md-9">
@@ -109,10 +109,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <option value="4" readonly>Tidak ada pilihan</option>
                                   <?php endif; ?>
                                 </select>
-                            </div>
-                            <div class="col-md-3 text-right">
+                            </div> -->
+                            <!-- <div class="col-md-3 text-right">
                                 <input type="submit" class="btn btn-primary" value="OK">
-                            </div>
+                            </div> -->
                         </div>
                         </form>
                     </div>

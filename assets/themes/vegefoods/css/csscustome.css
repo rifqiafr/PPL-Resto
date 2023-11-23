@@ -6,7 +6,7 @@
 }
 .link:visited, .link:link{
     float: right;
-    color: green;
+    color: #36a8ff;
     text-decoration: none;
 }
 .link:hover, .link:active{

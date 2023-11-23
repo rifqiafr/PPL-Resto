@@ -38,7 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">No</th>
                     <th scope="col">Pembayaran Order</th>
                     <th scope="col">Customer</th>
                     <th scope="col">Tanggal</th>
@@ -47,10 +47,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $no = 1; ?>
                   <?php foreach ($payments as $payment) : ?>
                     <tr>
                       <th scope="col">
-                        <?php echo $payment->id; ?>
+                        <?php echo $no++; ?>
                       </th>
                       <td>#<?php echo anchor('admin/payments/view/' . $payment->id, $payment->order_number); ?></td>
                       <td>

@@ -30,8 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <span class="h2 font-weight-bold mb-0"><?php echo $total_products; ?></span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                        <i class="ni ni-shop"></i>
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-box-2"></i>
                       </div>
                     </div>
                   </div>
@@ -52,8 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <span class="h2 font-weight-bold mb-0"><?php echo $total_customers; ?></span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="ni ni-circle-08"></i>
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-single-02"></i>
                       </div>
                     </div>
                   </div>
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-chart-bar-32"></i>
+                        <i class="ni ni-cart"></i>
                       </div>
                     </div>
                   </div>
@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <span class="h2 font-weight-bold mb-0">Rp <?php echo format_rupiah($total_income); ?></span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                      <div class="icon icon-shape bg-gradient-blue text-white rounded-circle shadow">
                         <i class="ni ni-money-coins"></i>
                       </div>
                     </div>
@@ -268,17 +268,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Stok</th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php $no = 1; ?>
                 <?php foreach ($products as $product) : ?>
                   <tr>
                     <th scope="col">
-                      <?php echo $product->id; ?>
+                      <?php echo $no++; ?>
                     </th>
                     <td>
                       <?php echo $product->name; ?>

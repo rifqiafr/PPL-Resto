@@ -122,4 +122,12 @@ class Order_model extends CI_Model {
 
         return $data->result();
     }
+
+    // Di dalam model Order atau model yang sesuai
+    public function delete_order($id)
+    {
+    $this->db->where('id', $id);
+    $this->db->delete('orders');
+    }
+
 }

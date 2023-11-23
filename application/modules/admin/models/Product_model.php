@@ -109,32 +109,32 @@ class Product_model extends CI_Model {
     }
 
 
-    public function get_all_coupons()
-    {
-        return $this->db->order_by('expired_date', 'DESC')->get('coupons')->result();
-    }
+    // public function get_all_coupons()
+    // {
+    //     return $this->db->order_by('expired_date', 'DESC')->get('coupons')->result();
+    // }
 
-    public function add_coupon(Array $data)
-    {
-        $this->db->insert('coupons', $data);
+    // public function add_coupon(Array $data)
+    // {
+    //     $this->db->insert('coupons', $data);
 
-        return $this->db->insert_id();
-    }
+    //     return $this->db->insert_id();
+    // }
 
-    public function coupon_data($id)
-    {
-        return $this->db->where('id', $id)->get('coupons')->row();
-    }
+    // public function coupon_data($id)
+    // {
+    //     return $this->db->where('id', $id)->get('coupons')->row();
+    // }
 
-    public function edit_coupon($id, $data) 
-    {
-        return $this->db->where('id', $id)->update('coupons', $data);
-    }
+    // public function edit_coupon($id, $data) 
+    // {
+    //     return $this->db->where('id', $id)->update('coupons', $data);
+    // }
 
-    public function delete_coupon($id)
-    {
-        return $this->db->where('id', $id)->delete('coupons');
-    }
+    // public function delete_coupon($id)
+    // {
+    //     return $this->db->where('id', $id)->delete('coupons');
+    // }
 
     public function latest()
     {
@@ -145,4 +145,6 @@ class Product_model extends CI_Model {
     {
         return $this->db->order_by('id', 'DESC')->limit(5)->get('product_category')->result();
     }
+
+    
 }

@@ -59,9 +59,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tr>
                 </table>
               </div>
-              <div class="card-footer">
+              <!-- <div class="card-footer">
                 <a href="#" data-id="<?php echo $customer->id; ?>" class="btn btn-danger btn-sm btnDelete"><i class="fa fa-trash"></i></a>
-              </div>
+              </div> -->
               
             </div>
             
@@ -86,10 +86,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $no = 1; ?>
                             <?php foreach ($orders as $order) : ?>
                                 <tr>
                                     <th scope="col">
-                                        <?php echo $order->id; ?>
+                                      <?php echo $no++; ?>
                                     </th>
                                     <td>
                                         <?php echo anchor('admin/orders/view/'. $order->id, '#'. $order->order_number); ?>
@@ -97,14 +98,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td>
                                         Rp <?php echo format_rupiah($order->total_price); ?>
                                     </td>
-                                    <td><?php echo get_order_status($order->order_status, '#'. $order->payment_method); ?></td>
+                                    <td>
+                                      <?php echo get_order_status($order->order_status, '#'. $order->payment_method); ?>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                     <?php else : ?>
-                    <div class="alert alert-info">Belum ada data pembayarn.</div>
+                    <div class="alert alert-info">Belum ada data pembayaran.</div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -147,6 +150,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php else : ?>
                     <div class="alert alert-info">Belum ada data order.</div>
                     <?php endif; ?>
+                    
                 </div>
             </div>
               

@@ -62,7 +62,7 @@ class Pages extends CI_Controller {
             );
 
             $this->contact->register_contact($data);
-            $this->session->set_flashdata('contact_flash', 'Pesan berhasil dikirimkan. Kami akan membalas dalam waktu 2x24 jam');
+            $this->session->set_flashdata('contact_flash', 'Pesan berhasil dikirimkan');
 
             redirect('pages/contact');
         }

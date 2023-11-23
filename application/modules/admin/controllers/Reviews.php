@@ -17,7 +17,7 @@ class Reviews extends CI_Controller {
 
     public function index()
     {
-        $params['title'] = 'Kelola Pembayaran';
+        $params['title'] = 'Kelola Review';
 
         $config['base_url'] = site_url('admin/reviews/index');
         $config['total_rows'] = $this->review->count_all_reviews();

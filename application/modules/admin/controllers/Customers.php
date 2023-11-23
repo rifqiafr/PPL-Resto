@@ -17,7 +17,7 @@ class Customers extends CI_Controller {
 
     public function index()
     {
-        $params['title'] = 'Kelola Pembayaran';
+        $params['title'] = 'Kelola Customers';
 
         $this->load->view('header', $params);
         $this->load->view('customers/customers');
@@ -84,4 +84,35 @@ class Customers extends CI_Controller {
         $this->output->set_content_type('application/json')
             ->set_output($response);
     }
+
+    // public function api_delete() {
+    //     $this->load->model('Customers_model'); // Gantilah 'Customers_model' dengan nama model yang sesuai
+        
+    //     // Ambil ID pelanggan dari data yang dikirimkan melalui POST
+    //     $customer_id = $this->input->post('id');
+
+    //     // Cek apakah ID pelanggan valid
+    //     if ($customer_id) {
+    //         // Panggil model untuk melakukan penghapusan data
+    //         $delete_result = $this->Customers_model->delete_customer($customer_id);
+
+    //         if ($delete_result) {
+    //             // Jika penghapusan berhasil, kirim respon sukses
+    //             $response['code'] = 204; // kode 204 menunjukkan penghapusan sukses
+    //         } else {
+    //             // Jika terjadi kesalahan saat penghapusan, kirim respon gagal
+    //             $response['code'] = 500; // kode 500 menunjukkan kesalahan server
+    //             $response['message'] = 'Gagal menghapus pelanggan.';
+    //         }
+    //     } else {
+    //         // Jika ID pelanggan tidak valid, kirim respon gagal
+    //         $response['code'] = 400; // kode 400 menunjukkan permintaan yang tidak valid
+    //         $response['message'] = 'ID pelanggan tidak valid.';
+    //     }
+
+    //     // Mengembalikan respon dalam format JSON
+    //     $this->output
+    //         ->set_content_type('application/json')
+    //         ->set_output(json_encode($response));
+    // }
 }

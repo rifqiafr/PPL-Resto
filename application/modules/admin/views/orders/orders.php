@@ -45,31 +45,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <th scope="col">Jumlah Item</th>
                     <th scope="col">Jumlah Harga</th>
                     <th scope="col">Status</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($orders as $order) : ?>
-                    <tr>
-                      <th scope="col">
-                        <?php echo anchor('admin/orders/view/' . $order->id, '#' . $order->order_number); ?>
-                      </th>
-                      <td><?php echo $order->customer; ?></td>
-                      <td>
-                        <?php echo get_formatted_date($order->order_date); ?>
-                      </td>
-                      <td>
-                        <?php echo $order->total_items; ?>
-                      </td>
-                      <td>
-                        Rp <?php echo format_rupiah($order->total_price); ?>
-                      </td>
-                      <td><?php echo get_order_status($order->order_status, $order->payment_method); ?>
-                    </td>
-                    <td>
-                    
-                    </td>
-                    </tr>
-                  <?php endforeach; ?>
+                <?php foreach ($orders as $order) : ?>
+            <tr>
+                <th scope="col">
+                    <?php echo anchor('admin/orders/view/' . $order->id, '#' . $order->order_number); ?>
+                </th>
+                <td><?php echo $order->customer; ?></td>
+                <td>
+                    <?php echo get_formatted_date($order->order_date); ?>
+                </td>
+                <td>
+                    <?php echo $order->total_items; ?>
+                </td>
+                <td>
+                    Rp <?php echo format_rupiah($order->total_price); ?>
+                </td>
+                <td><?php echo get_order_status($order->order_status, $order->payment_method); ?></td>
+                <td>
+                    <?php echo anchor('admin/orders/delete/' . $order->id, '<i class="fa fa-trash"></i>', array('class' => 'btn btn-danger btn-sm')); ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -85,8 +85,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
         <?php endif; ?>
-
       </div>
+      <!-- Tambahkan kelas .d-print-none pada elemen sidebar -->
+<div class="sidebar d-print-none">
+    <!-- Isi sidebar -->
+    <!-- ... -->
+</div>
+
     </div>
   </div>
 </div>
@@ -95,16 +100,41 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
 function printReport() {
     var originalContents = document.body.innerHTML;
+
+    // Sembunyikan tombol hapus dan sidebar sebelum mencetak
+    var deleteButtons = document.querySelectorAll('.btn-danger');
+    deleteButtons.forEach(function(button) {
+        button.classList.add('d-print-none');
+    });
+
+    var sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        sidebar.classList.add('d-print-none');
+    }
+
+    // Cetak laporan
     var printContents = `
         <h1>Laporan Lesehan Raihan</h1>
+        <h2>Jl. WR. Supratman, Kandang Limun, Kec. Muara Bangka Hulu, Kota Bengkulu, Bengkulu 38119</h2>
         ${document.querySelector('.table.align-items-center.table-flush').outerHTML}
     `;
     document.body.innerHTML = printContents;
     window.print();
     document.body.innerHTML = originalContents;
+
+    // Tampilkan kembali tombol hapus dan sidebar setelah mencetak
+    deleteButtons.forEach(function(button) {
+        button.classList.remove('d-print-none');
+    });
+
+    if (sidebar) {
+        sidebar.classList.remove('d-print-none');
+    }
 }
+
 </script>
 
+<!-- Tambahkan CSS untuk tata letak cetak -->
 <!-- Tambahkan CSS untuk tata letak cetak -->
 <style>
 @media print {
@@ -155,7 +185,13 @@ function printReport() {
     .card-header {
         display: none;
     }
+
+    .d-print-none {
+        display: none !important;
+    }
 }
 </style>
+
+
 
 
